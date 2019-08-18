@@ -31,7 +31,7 @@ public class ProductAPI {
     public ResponseEntity<Product> findById(@PathVariable Long id) {
         Optional<Product> stock = productService.findById(id);
         if (!stock.isPresent()) {
-            log.error("Id " + id + " is not existed");
+          //  log.error("Id " + id + " is not existed");
             ResponseEntity.badRequest().build();
         }
 
@@ -41,7 +41,7 @@ public class ProductAPI {
     @PutMapping("/{id}")
     public ResponseEntity<Product> update(@PathVariable Long id, @Valid @RequestBody Product product) {
         if (!productService.findById(id).isPresent()) {
-            log.error("Id " + id + " is not existed");
+           // log.error("Id " + id + " is not existed");
             ResponseEntity.badRequest().build();
         }
 
@@ -51,7 +51,7 @@ public class ProductAPI {
     @DeleteMapping("/{id}")
     public ResponseEntity delete(@PathVariable Long id) {
         if (!productService.findById(id).isPresent()) {
-            log.error("Id " + id + " is not existed");
+          //  log.error("Id " + id + " is not existed");
             ResponseEntity.badRequest().build();
         }
 
