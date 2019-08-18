@@ -2,6 +2,8 @@ package lk.productd.productdemo.restful.product;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,7 +17,8 @@ import java.util.Optional;
 @Slf4j
 @RequiredArgsConstructor
 public class ProductAPI {
-    private final ProductService productService;
+    @Autowired 
+    ProductService productService;
 
     @GetMapping
     public ResponseEntity<List<Product>> findAll() {
